@@ -1,5 +1,8 @@
-const mongoose = require('mongoose');
-const dotenv = require('dotenv');
+//==============================================================================
+// set up ======================================================================
+//==============================================================================
+const mongoose  = require('mongoose');
+const dotenv    = require('dotenv');
 
 process.on('uncaughtException', err => {
   console.log('UNCAUGHT EXCEPTION! 💥 Shutting down...');
@@ -19,10 +22,11 @@ mongoose
   .connect(DB, {
     useNewUrlParser: true,
     useCreateIndex: true,
-    useFindAndModify: false
+    useFindAndModify: false,
+    useUnifiedTopology: true
   })
   .then(con => {
-    console.log(con.connections)
+    // console.log(con.connections)
     console.log('DB connection successful!')
   });
 
