@@ -1,35 +1,40 @@
-const path = require('path');
-const express = require('express');
-const morgan = require('morgan');
-const rateLimit = require('express-rate-limit');
-const helmet = require('helmet');
-const mongoSanitize = require('express-mongo-sanitize');
-const xss = require('xss-clean');
-const hpp = require('hpp');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
-const compression = require('compression');
-const cors = require('cors');
-
-const AppError = require('./utils/appError');
-const globalErrorHandler = require('./controllers/errorController');
-const tourRouter = require('./routes/tourRoutes');
-const userRouter = require('./routes/userRoutes');
-const reviewRouter = require('./routes/reviewRoutes');
-const bookingRouter = require('./routes/bookingRoutes');
-const bookingController = require('./controllers/bookingController');
-const viewRouter = require('./routes/viewRoutes');
-
 // Start express app
-const app = express();
 
+//==============================================================================
+// set up ======================================================================
+//==============================================================================
+const express             = require('express');
+const app                 = express();
+const morgan              = require('morgan');
+const rateLimit           = require('express-rate-limit');
+const helmet              = require('helmet');
+const mongoSanitize       = require('express-mongo-sanitize');
+const xss                 = require('xss-clean');
+const hpp                 = require('hpp');
+const cookieParser        = require('cookie-parser');
+const bodyParser          = require('body-parser');
+const compression         = require('compression');
+const cors                = require('cors');
+const path                = require('path');
+const AppError            = require('./utils/appError');
+const globalErrorHandler  = require('./controllers/errorController');
+const tourRouter          = require('./routes/tourRoutes');
+const userRouter          = require('./routes/userRoutes');
+const reviewRouter        = require('./routes/reviewRoutes');
+const bookingRouter       = require('./routes/bookingRoutes');
+const bookingController   = require('./controllers/bookingController');
+const viewRouter          = require('./routes/viewRoutes');
+
+
+//==============================================================================
+// configuration ===============================================================
+//==============================================================================
 app.enable('trust proxy');
-
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
 // 1) GLOBAL MIDDLEWARES
-// Implement CORS
+// set up cors to allow us to accept requests from our client
 app.use(cors());
 // Access-Control-Allow-Origin *
 // api.natours.com, front-end natours.com
@@ -50,6 +55,11 @@ app.use(helmet());
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
+
+
+//==============================================================================
+// configuration ===============================================================
+//==============================================================================
 
 // Limit requests from same API
 const limiter = rateLimit({
