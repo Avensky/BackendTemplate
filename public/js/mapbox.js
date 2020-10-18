@@ -1,17 +1,16 @@
 /* eslint-disable */
 export const displayMap = locations => {
-  mapboxgl.accessToken =
-    'pk.eyJ1Ijoiam9uYXNzY2htZWR0bWFubiIsImEiOiJjam54ZmM5N3gwNjAzM3dtZDNxYTVlMnd2In0.ytpI7V7w7cyT1Kq5rT9Z1A';
+  mapboxgl.accessToken = 'pk.eyJ1IjoiYXZlbnNreSIsImEiOiJja2dlcGs0ZW8wZ2tqMnZtaXRidTdybmQ2In0.XvL1kaOdBmXArpDnoAP_Gw';
 
   var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/jonasschmedtmann/cjvi9q8jd04mi1cpgmg7ev3dy',
+    style: 'mapbox://styles/mapbox/streets-v11',
     scrollZoom: false
     // center: [-118.113491, 34.111745],
     // zoom: 10,
     // interactive: false
   });
-
+  
   const bounds = new mapboxgl.LngLatBounds();
 
   locations.forEach(loc => {

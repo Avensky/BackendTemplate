@@ -1,0 +1,15 @@
+.Books {
+    background-color: rgb(34, 26, 0);
+}
+
+@media only screen and (min-width: 600px) {
+    /* For tablets: */
+    .Books {
+    }
+}
+
+@media only screen and (min-width: 1025px) {
+    /* For desktop: */
+    .Books {
+    }
+}

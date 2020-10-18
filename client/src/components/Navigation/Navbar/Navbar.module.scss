@@ -1,0 +1,119 @@
+.Navbar {
+    height: 6vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgb(85, 22, 185);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2vw;
+    box-sizing: border-box;
+    z-index: 90;
+    color: white;
+    white-space: nowrap;
+}
+
+.Navbar a {
+    height: 100%;
+    margin: 0;
+    align-items: center;
+}
+
+.Navbar nav {
+    height: 100%;
+}
+
+
+.Navbar .Mobile {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+}
+
+.Mobile a {
+    height: 80%;
+    padding: 0;
+}
+
+.Navbar h2,
+.Navbar h3 {
+    margin: 0;
+}
+
+
+a:hover {
+    color: white;
+}
+
+a:active {
+    color: white;
+    text-decoration: none;
+
+}
+
+a:link {
+    text-decoration: white;
+}
+  
+a:visited {
+    text-decoration: white;
+}
+
+
+.DesktopOnly {
+    display: none;
+}
+
+.fa {
+    height: 1vh;
+}
+
+
+
+.Logo {
+    height: 100%;
+    padding: 1px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+
+
+@media only screen and (min-width: 600px) {
+    /* For tablets: */
+    .DesktopOnly {
+        display: inherit;
+    }
+
+    .Navbar .MobileLinks, .Navbar .Logo {
+        display: none;
+    }
+
+    .Navbar {
+        justify-content: center;
+    }
+}
+
+@media only screen and (min-width: 1025px) {
+    /* For desktop: */
+    .DesktopOnly {
+        display: inherit;
+    }
+
+    .Navbar .MobileLinks, .Navbar .Logo {
+        display: none;
+    }
+    
+    .Navbar {
+        justify-content: center;
+    }
+
+    a {
+        padding: 0;
+        
+    }
+}

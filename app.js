@@ -1,7 +1,5 @@
-// Start express app
-
 //==============================================================================
-// set up ======================================================================
+// set up express app ==========================================================
 //==============================================================================
 const express             = require('express');
 const app                 = express();
@@ -17,13 +15,13 @@ const compression         = require('compression');
 const cors                = require('cors');
 const path                = require('path');
 const AppError            = require('./utils/appError');
-const globalErrorHandler  = require('./controllers/errorController');
-const tourRouter          = require('./routes/tourRoutes');
-const userRouter          = require('./routes/userRoutes');
-const reviewRouter        = require('./routes/reviewRoutes');
-const bookingRouter       = require('./routes/bookingRoutes');
-const bookingController   = require('./controllers/bookingController');
-const viewRouter          = require('./routes/viewRoutes');
+const globalErrorHandler  = require('./app/controllers/errorController');
+const tourRouter          = require('./app/routes/tourRoutes');
+const userRouter          = require('./app/routes/userRoutes');
+const reviewRouter        = require('./app/routes/reviewRoutes');
+const bookingRouter       = require('./app/routes/bookingRoutes');
+const bookingController   = require('./app/controllers/bookingController');
+const viewRouter          = require('./app/routes/viewRoutes');
 
 
 //==============================================================================
@@ -35,12 +33,19 @@ app.set('views', path.join(__dirname, 'views'));
 
 // 1) GLOBAL MIDDLEWARES
 // set up cors to allow us to accept requests from our client
-app.use(cors());
+// app.use(cors());
 // Access-Control-Allow-Origin *
 // api.natours.com, front-end natours.com
 // app.use(cors({
 //   origin: 'https://www.natours.com'
 // }))
+app.use(
+  cors({
+    origin: "http://localhost:3000", // allow to server to accept request from different origin
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true // allow session cookie from browser to pass through
+  })
+);
 
 app.options('*', cors());
 // app.options('/api/v1/tours/:id', cors());
@@ -106,7 +111,7 @@ app.use(compression());
 // Test middleware
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
-  // console.log(req.cookies);
+  console.log(req.cookies);
   next();
 });
 
