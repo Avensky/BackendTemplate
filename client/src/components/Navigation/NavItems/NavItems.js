@@ -5,6 +5,7 @@ import classes from '../../pages/Pages.module.scss';
 
 const navItems = ( props ) => (
     <ul className={myClasses.NavItems}>
+        <NavItem link="/home" exact>Home</NavItem>
         <NavItem link="/characters" exact>Characters</NavItem>
         <NavItem link="/shop"       exact>Purchase</NavItem>
         {props.isAuthenticated != null

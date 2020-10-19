@@ -28,7 +28,7 @@ a {
 
 .dropbtn {
     background-color: transparent;
-    width: 15vw;
+    width: 100%;
     margin: 0;
     padding: 1vh 2vw;
     color: white;
@@ -46,7 +46,6 @@ a {
     display: none;
     position: absolute;
     background-color: #ffffff;
-    width: 100%;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
   }
@@ -56,6 +55,8 @@ a {
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    white-space: nowrap;
+    
   }
   
   .dropdownContent a:hover {background-color: #f1f1f1}
