@@ -6,7 +6,6 @@ import NavItems from '../NavItems/NavItems';
 import SidebarToggle from '../Sidebar/SidebarToggle/SidebarToggle';
 import { NavLink } from 'react-router-dom';
 
-
 const navbar = ( props ) => {
     let cart;         
     if (props.items.length || props.items.length >0) {
@@ -17,6 +16,7 @@ const navbar = ( props ) => {
             </NavLink > 
         )
     }
+
     return (
         <div className={myClasses.Navbar}>
             <SidebarToggle clicked={props.sidebarToggleClicked} />   

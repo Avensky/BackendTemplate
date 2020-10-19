@@ -7,7 +7,6 @@ import myClasses from './Details.module.scss';
 // import * as actions from '../../../../store/actions/index';
 
 class Details extends Component {
-
     state = {
         id: null,
         loadedItem: null
