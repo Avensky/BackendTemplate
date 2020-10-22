@@ -1,13 +1,13 @@
 //==============================================================================
 // set up ======================================================================
 //==============================================================================
-const crypto          = require('crypto');
-const { promisify }   = require('util');
-const jwt             = require('jsonwebtoken');
-const User            = require('./../models/userModel');
-const catchAsync      = require('./../utils/catchAsync');
-const AppError        = require('./../utils/appError');
-const Email           = require('./../utils/email');
+const crypto                      = require('crypto');
+const { promisify }               = require('util');
+const jwt                         = require('jsonwebtoken');
+const User                        = require('./../models/userModel');
+const catchAsync                  = require('./../utils/catchAsync');
+const AppError                    = require('./../utils/appError');
+const Email                       = require('./../utils/email');
 
 //==============================================================================
 // token  ======================================================================
@@ -46,10 +46,10 @@ const createSendToken = (user, statusCode, req, res) => {
 //==============================================================================
 exports.signup = catchAsync(async (req, res, next) => {
   const newUser = await User.create({
-    name: req.body.name,
-    email: req.body.email,
-    password: req.body.password,
-    passwordConfirm: req.body.passwordConfirm
+    name              : req.body.name,
+    email             : req.body.email,
+    password          : req.body.password,
+//    passwordConfirm   : req.body.passwordConfirm
   });
 
   const url = `${req.protocol}://${req.get('host')}/me`;
